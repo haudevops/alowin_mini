@@ -1,0 +1,71 @@
+{
+  "data": [
+    {
+      "product": "NAM NGƯ Nước mắm 750ml T18",
+      "location": "A1",
+      "sku": "10009164",
+      "unit": [
+        "chai",
+        "thùng"
+      ],
+      "suggestionName": [
+        "nước mắm 750",
+        "nước mắm nam ngư",
+        "nước mắm nam ngư 750"
+      ]
+    },
+    {
+      "product": "HẢO HẢO Mì tôm chua cay Hảo Hảo G75g",
+      "location": "A2",
+      "sku": "10007893",
+      "unit": [
+        "gói",
+        "thùng"
+      ],
+      "suggestionName": [
+        "hảo hảo",
+        "mì hảo hảo",
+        "hảo hảo chua cay"
+      ]
+    },
+    {
+      "product": "RED RUBY Bia lon 330ml T24",
+      "location": "A3",
+      "sku": "10150217",
+      "unit": [
+        "lon",
+        "thùng"
+      ],
+      "suggestionName": [
+        "ruby"
+      ]
+    },
+    {
+      "product": "KOKOMI Mì Đại 90 Tôm chua cay 90gr",
+      "location": "A4",
+      "sku": "10639853",
+      "unit": [
+        "gói",
+        "thùng"
+      ],
+      "suggestionName": [
+        "mì kokomi tôm",
+        "mì kokomi chua cay",
+        "kokomi tôm"
+      ]
+    },
+    {
+      "product": "CHIN-SU Tương ớt 500gr T12",
+      "location": "A5",
+      "sku": "10180851",
+      "unit": [
+        "chai",
+        "thùng"
+      ],
+      "suggestionName": [
+        "tương ớt chiên xu lớn",
+        "tương ớt chinsu lớn"
+      ]
+    }
+  ]
+}
