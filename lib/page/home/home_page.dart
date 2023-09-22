@@ -1,8 +1,11 @@
 import 'dart:async';
+import 'dart:convert';
 
+import 'package:alowin_mini/data/model/product/product_model.dart';
 import 'package:alowin_mini/widget/action_bar/action_speech_widget.dart';
 import 'package:alowin_mini/widget/voice_control/speech_to_text_widget.dart';
 import 'package:alowin_mini/widget/voice_control/text_to_speech_widget.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/service/stream_event.dart';
@@ -19,6 +22,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late StreamSubscription dataStreaming;
   String speakSentence = "";
+  String? _data;
+  DataProductModel? dataProductModel;
 
   Future<void> initDataStream({Object? eventName = ''}) async {
     dataStreaming = (await StreamEvent.eventStream).listen((event) {
@@ -42,7 +47,16 @@ class _HomePageState extends State<HomePage> {
   Future<void> initVoiceSpeech() async {
     await TextToSpeechWidgets.initialTextToSpeak();
     await SpeechToTextWidgets.initialize();
+  }
 
+  void _parseJson() async {
+    _data = await DefaultAssetBundle.of(context)
+        .loadString("assets/json/product_data.json");
+    final jsonResult = jsonDecode(_data!);
+    if (kDebugMode) print(jsonResult);
+    setState(() {
+      dataProductModel = DataProductModel.fromJson(jsonResult);
+    });
   }
 
   @override
@@ -51,6 +65,7 @@ class _HomePageState extends State<HomePage> {
     initDataStream();
     initVoiceSpeech();
     initPermissionMicrophone();
+    _parseJson();
   }
 
   Future<void> initPermissionMicrophone() async {
