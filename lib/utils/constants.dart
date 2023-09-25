@@ -65,7 +65,7 @@ class Constants {
   static const VI_LOCALE = 'vi-VN';
 
   static const PITCH_RATE_ONE_POINT_ZERO = 1.0;
-  static const SPEECH_RATE_ZERO_POINT_SEVEN = 0.9;
+  static const SPEECH_RATE_ZERO_POINT_SEVEN = 0.6;
 
   static const FIRST_WORD = 'FIRST_WORD';
 

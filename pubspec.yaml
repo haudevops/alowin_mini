@@ -77,6 +77,7 @@ flutter:
     - assets/img/bg_mic.png
     - assets/img/img_oval.svg
     - assets/json/product_data.json
+    - assets/svg/ic_check_green.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
