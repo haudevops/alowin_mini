@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:alowin_mini/data/model/product/product_model.dart';
+import 'package:alowin_mini/data/model/realm/realm_model.dart';
 import 'package:alowin_mini/data/service/realm_event.dart';
 import 'package:alowin_mini/routes/screen_arguments.dart';
 import 'package:alowin_mini/widget/action_bar/action_speech_widget.dart';
@@ -30,6 +31,7 @@ class _HomePageState extends State<HomePage> {
   String? _data;
   DataProductModel? dataProductModel;
   List<ProductItem> productModel = [];
+  List<ProductPTM> productPTM = [];
 
   Future<void> initDataStream({Object? eventName = ''}) async {
     dataStreaming = (await StreamEvent.eventStream).listen((event) {
@@ -52,8 +54,14 @@ class _HomePageState extends State<HomePage> {
     if (words == 'chấp nhận') {
       if (dataProductModel != null) {
         setState(() {
-          productModel.add(dataProductModel!.productItem![0]);
-          dataProductModel?.productItem?.removeAt(0);
+          productModel.add(ProductItem(
+            sku: productPTM[0].sku ?? '',
+            skuName: productPTM[0].skuName,
+            location: productPTM[0].location,
+            pickQty: productPTM[0].pickQty,
+            suggestionName: productPTM[0].suggestName
+          ));
+          dataProductModel!.productItem!.removeAt(0);
           initProcessVoice();
         });
       }
@@ -73,9 +81,9 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       dataProductModel = DataProductModel.fromJson(jsonResult);
     });
+    productPTM = await RealmEvent.getAllProduct() ?? [];
+    print('Data Product: ${productPTM[0].suggestName}');
     RealmEvent.syncFile();
-    print(
-        'dataProductModel: ${dataProductModel!.productItem![0].suggestionName}');
   }
 
   @override
@@ -149,8 +157,9 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 Text(
                                   '${productModel[index].skuName}',
+                                  maxLines: 2,
                                   style: TextStyle(
-                                      fontSize: 15,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.w600),
                                 ),
                                 _itemMarkerCheckGreen()

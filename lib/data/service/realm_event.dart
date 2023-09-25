@@ -56,7 +56,7 @@ class RealmEvent {
   static Timer? schedule;
   static Realm realm = Realm(Configuration.local(
       [ProductPTM.schema],
-      isReadOnly: false, schemaVersion: 2));
+      isReadOnly: false, schemaVersion: 4));
 
   static Future<void> startSchedule() async {
     RealmEvent.schedule ??=
@@ -65,14 +65,22 @@ class RealmEvent {
     });
   }
 
-  // static Future<Products?> getProduct(String sku) async {
-  //   var results = realm.query<Products>('sku == \$0', [sku]);
-  //   if (results.isNotEmpty) {
-  //     return results.first;
-  //   }
-  //   return null;
-  // }
-  //
+  static Future<ProductPTM?> getProduct(String sku) async {
+    var results = realm.query<ProductPTM>('sku == \$0', [sku]);
+    if (results.isNotEmpty) {
+      return results.first;
+    }
+    return null;
+  }
+
+  static Future<List<ProductPTM>?> getAllProduct() async {
+    var results = realm.all<ProductPTM>();
+    if (results.isNotEmpty) {
+      return results.toList();
+    }
+    return [];
+  }
+
   // static Future<ProductUnits?> getProductUnitByUomInSaleOrder(
   //     Products product, String uom) async {
   //   ProductUnits? results;

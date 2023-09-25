@@ -24,7 +24,7 @@ class HttpRealmResult {
   factory HttpRealmResult.fromJson(Map<String, dynamic> json) {
     ProductPTM parseProduct(dynamic json) {
       return ProductPTM(
-          json["sku"],
+          json["id"],
           json["sku"],
           json["skuName"],
           json["location"],

@@ -22,6 +22,20 @@
       "location": "B3",
       "pickQty": "10",
       "suggestName": "bia tiger"
+    },
+    {
+      "sku": "10007893",
+      "skuName": "HẢO HẢO Mì tôm chua cay Hảo Hảo G75g",
+      "location": "B4",
+      "pickQty": "25",
+      "suggestName": "hảo hảo"
+    },
+    {
+      "sku": "10311975",
+      "skuName": "HEO CAO BỒI XX lắc phô mai 3 cây*20g T48",
+      "location": "C5",
+      "pickQty": "8",
+      "suggestName": "lắc vàng"
     }
   ]
 }

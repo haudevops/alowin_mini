@@ -23,7 +23,7 @@ class TextToSpeechWidgets {
       await ttsVoiceControl.setPitch(Constants.PITCH_RATE_ONE_POINT_ZERO);
       await ttsVoiceControl.setSpeechRate(Constants.SPEECH_RATE_ZERO_POINT_SEVEN);
 
-      speakText('Xin chào');
+      // speakText('Xin chào');
   }
 
   static Future<void> speakText(String speechText) async {
