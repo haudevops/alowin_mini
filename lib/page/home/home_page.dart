@@ -81,9 +81,9 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       dataProductModel = DataProductModel.fromJson(jsonResult);
     });
+    RealmEvent.syncFile();
     productPTM = await RealmEvent.getAllProduct() ?? [];
     print('Data Product: ${productPTM[0].suggestName}');
-    RealmEvent.syncFile();
   }
 
   @override

@@ -20,7 +20,7 @@ class _BlinkAnimationState extends State<BlinkAnimation>
   @override
   initState() {
     super.initState();
-    dataProductModel = widget.data.arg1;
+    dataProductModel = widget.data.arg1 ?? [];
     controller = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,

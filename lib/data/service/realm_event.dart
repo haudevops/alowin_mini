@@ -56,7 +56,7 @@ class RealmEvent {
   static Timer? schedule;
   static Realm realm = Realm(Configuration.local(
       [ProductPTM.schema],
-      isReadOnly: false, schemaVersion: 4));
+      isReadOnly: false, schemaVersion: 5));
 
   static Future<void> startSchedule() async {
     RealmEvent.schedule ??=
